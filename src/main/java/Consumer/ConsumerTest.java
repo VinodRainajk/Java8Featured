@@ -17,12 +17,25 @@ public class ConsumerTest {
 
     }
 
+    public static void printSeletec() {
+        Consumer<Student> consumerStudent = (student) -> System.out.println(student);
+        Consumer<Student> c1 = (student) -> System.out.print(student.getName());
+        Consumer<Student> c2 = (student) -> System.out.println(student.getActivities());
+        List<Student> studentList = StudentDataBase.getAllStudents();
+        //studentList.forEach(c1.andThen(c2));
+        studentList.forEach((student) -> {
+            System.out.println(student.getActivities());
+            System.out.println(student.getName());
+        });
+    }
+
     public static void main(String[] args) {
 
         Consumer<String> consumer = (S)->  System.out.println(S.toUpperCase());
         consumer.accept("Vinod");
         System.out.println("***** Second example *******");
-        printall();
+       // printall();
+        printSeletec();
 
     }
 }
