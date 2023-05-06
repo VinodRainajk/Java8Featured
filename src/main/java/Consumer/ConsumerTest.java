@@ -11,9 +11,12 @@ public class ConsumerTest {
 
     public static void printall()
     {
+
+
         Consumer<Student> consumerStudent =  (student)-> System.out.println(student);
         List<Student> studentList =  StudentDataBase.getAllStudents();
         studentList.forEach(consumerStudent);
+
 
     }
 
@@ -30,9 +33,11 @@ public class ConsumerTest {
     }
 
     public static void main(String[] args) {
-
+        int value = 8;
         Consumer<String> consumer = (S)->  System.out.println(S.toUpperCase());
+        value = 9;
         consumer.accept("Vinod");
+
         System.out.println("***** Second example *******");
        // printall();
         printSeletec();
